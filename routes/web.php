@@ -14,3 +14,15 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('abogados', function () {
+	
+	$lawyers = App\Abogado::all();
+	
+	return view('lawyers', compact('lawyers'));
+});
+
+Route::get('users', function () {
+	$users  = App\User::all();
+	return view('users', compact('users'));
+});
