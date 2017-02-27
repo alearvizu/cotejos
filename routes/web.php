@@ -19,7 +19,7 @@ Route::get('abogados', function () {
 	
 	$lawyers = App\Abogado::all();
 	
-	return view('lawyers', compact('lawyers'));
+	return view('abogados', compact('lawyers'));
 });
 
 Route::get('users', function () {
