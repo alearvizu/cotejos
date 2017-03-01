@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return 'welcome';
+    return 'cotejos';
 });
 
 Route::get('abogados', function () {
