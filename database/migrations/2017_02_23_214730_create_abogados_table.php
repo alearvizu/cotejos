@@ -15,11 +15,9 @@ class CreateAbogadosTable extends Migration
     {
         Schema::create('abogados', function (Blueprint $table) {
             $table->increments('id');
-
             $table->string('full_name');
             $table->string('email')->unique();
             $table->string('phone_number')->nullable();
-            
             $table->timestamps();
         });
     }

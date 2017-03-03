@@ -1,12 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Abogados</title>
+@extends('layouts.app')
 
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-</head>
-<body>
+@section('content')	
+	<h1>Abogados</h1>
 	<table class="table table-striped table-hover" style="width: 60%; margin: 2em">
 		<thead>
 			<tr>
@@ -32,5 +27,4 @@
 			@endforeach
 		</tbody>
 	</table>
-</body>
-</html>
+@endsection

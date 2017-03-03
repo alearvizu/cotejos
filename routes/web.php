@@ -12,17 +12,28 @@
 */
 
 Route::get('/', function () {
-    return 'cotejos';
+    return view('welcome');
 });
 
-Route::get('abogados', function () {
+
+Route::group(['middleware' => 'auth'], function() {
+
+	Route::get('/dashboard', function(){
+		return view('dashboard');
+	})->name('dashboard');
 	
-	$lawyers = App\Abogado::all();
+	Route::get('users', function () {
+		$users  = App\User::all();
+	    return view('users.index', compact('users'));
+	})->name('users.index');
+
+	Route::get('abogados', function () {
 	
-	return view('abogados', compact('lawyers'));
+	  $lawyers = App\Abogado::all();
+	
+	  return view('abogados.index', compact('lawyers'));
+    })->name('abogados.index');
 });
 
-Route::get('users', function () {
-	$users  = App\User::all();
-	return view('users', compact('users'));
-});
+Auth::routes();
+
