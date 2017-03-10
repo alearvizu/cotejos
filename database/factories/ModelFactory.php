@@ -30,3 +30,13 @@ $factory->define(App\Abogado::class, function(Faker\Generator $faker){
 		'phone_number' => $faker->phoneNumber
 	];
 });
+
+$factory->define(App\Cliente::class, function(Faker\Generator $faker){
+    return[
+        'full_name' => $faker->name,
+        'email' => $faker->unique()->safeEmail,
+        'cel_phone' => $faker->phoneNumber
+        'phone_number' => $faker->phoneNumber
+    ];
+});
+

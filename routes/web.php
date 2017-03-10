@@ -35,5 +35,13 @@ Route::group(['middleware' => 'auth'], function() {
     })->name('abogados.index');
 });
 
+Route::get('clientes', function () {
+	
+	$clientes = App\cliente::all();
+	
+	return view('clientes', compact('clientes'));
+});
+
+
 Auth::routes();
 
