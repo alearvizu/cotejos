@@ -15,7 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
 Route::group(['middleware' => 'auth'], function() {
 
 	Route::get('/dashboard', function(){
@@ -28,20 +27,43 @@ Route::group(['middleware' => 'auth'], function() {
 	})->name('users.index');
 
 	Route::get('abogados', function () {
-	
 	  $lawyers = App\Abogado::all();
-	
 	  return view('abogados.index', compact('lawyers'));
     })->name('abogados.index');
+
+    Route::get('clientes', function () {
+	    $clientes = App\Cliente::all();
+	    return view('clientes.index', compact('clientes'));
+	})->name('clientes.index');
+});
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
+
+
+/*
+Route::get('abogados', function () {
+	
+	$lawyers = App\Abogado::all();
+	
+	return view('abogados', compact('lawyers'));
+});
+
+Route::get('users', function () {
+	$users  = App\User::all();
+	return view('users', compact('users'));
 });
 
 Route::get('clientes', function () {
-	
-	$clientes = App\cliente::all();
-	
+	$clientes  = App\Cliente::all();
 	return view('clientes', compact('clientes'));
 });
+*/
+
+
 
 
 Auth::routes();
 
+Route::get('/home', 'HomeController@index');

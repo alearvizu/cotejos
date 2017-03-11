@@ -17,7 +17,6 @@ class CreateClientesTable extends Migration
             $table->increments('id');
             $table->string('full_name');
             $table->string('email')->unique();
-            $table->string('cel_phone')->nullable();
             $table->string('phone_number')->nullable();
             $table->timestamps();
         });
